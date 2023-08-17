@@ -21,7 +21,7 @@ def load_transform(casenum, tfile):
     if casenum == 1:
         a1_img = nib.load(tfile)
         a1_data = a1_img.get_fdata()  # X x Y x Z x 3
-    elif casenum in (2, 3):
+    elif casenum in (2, 3, 5): #added 5 -- 8/16/23
         # V x 3 (decimal coordinates) or V x 1 (index)
         a1_img = nib.load(tfile)
         a1_data = a1_img.get_fdata()
@@ -69,7 +69,7 @@ def load_sourcedata(casenum, sourcedata):
             sourcedata = np.vstack(sdatatemp)
 
     elif isinstance(sourcedata, str):
-        if casenum in (1, 2, 3):
+        if casenum in (1, 2, 3, 5):
             if sourcedata[-4:] == '.mgz':
                 source_img = nib.load(sourcedata)
                 sourcedata = source_img.get_fdata()

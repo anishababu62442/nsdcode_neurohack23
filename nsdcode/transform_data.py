@@ -98,7 +98,7 @@ def transform_data(a1_data, sourcedata, tr_args):
                 tr_args['outputfile'],
                 origin=origin)
 
-    elif tr_args['casenum'] == 2:    # volume-to-nativesurface
+    elif tr_args['casenum'] in (2, 5):    # volume-to-nativesurface
 
         # construct coordinates
         coords = np.c_[a1_data[:, 0].ravel(order='F'),
